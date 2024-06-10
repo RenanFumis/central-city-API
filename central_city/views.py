@@ -1,29 +1,13 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
+from central_city.models import Heroi, Vilao
+from central_city.serializer import HeroiSerializer, VilaoSerializer
 
-def index(request):
-    if request.method == 'GET':
-        return JsonResponse({'message': 'Bem vindo à Central City!'})
+class HeroisViewSet(viewsets.ModelViewSet):
+    '''Exibiondo todos os herois'''
+    queryset = Heroi.objects.all()
+    serializer_class = HeroiSerializer
 
-def herois(request):
-    if request.method == 'GET':
-        heroi = {
-            'id': 1,
-            'nome': 'Barry Allen',
-            'codinome': 'Flash',
-            'poder': 'Super velocidade',
-            'profissao': 'Policial',
-            'primeira_aparicao': 'Flash Comics #1 (1940)'
-        }
-        return JsonResponse(heroi)
-
-def viloes(request):
-    if request.method == 'GET':
-        vilao = {
-            'id': 1,
-            'nome': 'Eobard Thawne',
-            'codinome': 'Professor Zoom',
-            'poder': 'Super velocidade',
-            'profissao': 'Cientista',
-            'primeira_aparicao': 'The Flash #139 (1963)'
-        }
-        return JsonResponse(vilao)
+class ViloesViewSet(viewsets.ModelViewSet):
+    '''Exibindo todos os viloes'''
+    queryset = Vilao.objects.all()
+    serializer_class = VilaoSerializer
