@@ -6,6 +6,7 @@ class HeroiAdmin(admin.ModelAdmin):
     list_display_links = ('nome', 'codinome')
     search_fields = ('nome', 'codinome', 'primeira_aparicao')
     list_per_page = 20
+    ordering = ('nome',)
 
 admin.site.register(Heroi, HeroiAdmin)
 
@@ -14,6 +15,7 @@ class VilaoAdmin(admin.ModelAdmin):
     list_display_links = ('nome', 'codinome')
     search_fields = ('nome', 'codinome', 'primeira_aparicao')
     list_per_page = 20
+    ordering = ('nome',)
 
 admin.site.register(Vilao, VilaoAdmin)
 
