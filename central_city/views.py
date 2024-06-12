@@ -1,8 +1,13 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
+from central_city.models import Heroi, Vilao
+from central_city.serializer import HeroiSerializer, VilaoSerializer
 
-def index(request):
-    if request.method == 'GET':
-        return JsonResponse({'message': 'Bem vinda à Central City!'})
+class HeroisViewSet(viewsets.ModelViewSet):
+    '''Exibiondo todos os herois'''
+    queryset = Heroi.objects.all()
+    serializer_class = HeroiSerializer
 
-def herios(request):
-    pass
+class ViloesViewSet(viewsets.ModelViewSet):
+    '''Exibindo todos os viloes'''
+    queryset = Vilao.objects.all()
+    serializer_class = VilaoSerializer
