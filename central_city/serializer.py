@@ -6,7 +6,7 @@ from .validators import *
 class HeroiSerializer(serializers.ModelSerializer):
     class Meta:
         model = Heroi
-        fields = ['id', 'nome', 'codinome', 'poder', 'profissao', 'primeira_aparicao']
+        fields = ['id', 'nome', 'codinome', 'poder', 'profissao', 'primeira_aparicao', 'origem']
 
     def validate(self, data):
         if not nome_valido(data['nome']):
@@ -16,7 +16,7 @@ class HeroiSerializer(serializers.ModelSerializer):
 class VilaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vilao
-        fields = ['id', 'nome', 'codinome', 'poder', 'profissao', 'primeira_aparicao']
+        fields = ['id', 'nome', 'codinome', 'poder', 'profissao', 'primeira_aparicao', 'origem']
 
     def validate(self, data):
         if not nome_valido(data['nome']):

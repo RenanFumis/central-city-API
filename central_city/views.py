@@ -7,12 +7,14 @@ class HeroisViewSet(viewsets.ModelViewSet):
     '''Exibiondo todos os herois'''
     queryset = Heroi.objects.all()
     serializer_class = HeroiSerializer
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome', 'primeira_aparicao']
+    search_fields = ['nome', 'codinome']
 
 class ViloesViewSet(viewsets.ModelViewSet):
     '''Exibindo todos os viloes'''
     queryset = Vilao.objects.all()
     serializer_class = VilaoSerializer
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome', 'primeira_aparicao']
+    search_fields = ['nome', 'codinome']
